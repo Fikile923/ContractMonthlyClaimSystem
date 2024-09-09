@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<ContractMonthlyClaimSystem.Models.Claim>
+
+<h2>Claims Overview</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Claim Period</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td>
+                <td>@claim.ClaimPeriodFrom.ToShortDateString() - @claim.ClaimPeriodTo.ToShortDateString()</td>
+                <td>@claim.Status</td>
+                <td>
+                    <a href="@Url.Action("Details", "Claim", new { claimId = claim.ClaimId })">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Submit", "Claim")" class="btn btn-primary">Submit New Claim</a>

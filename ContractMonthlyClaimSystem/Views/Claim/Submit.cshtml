@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ContractMonthlyClaimSystem.Models.Claim
+
+<h2>Submit a New Claim</h2>
+
+<form asp-action="Submit" method="post">
+    <div class="form-group">
+        <label asp-for="LecturerName"></label>
+        <input asp-for="LecturerName" class="form-control" />
+        <span asp-validation-for="LecturerName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ClaimPeriodFrom"></label>
+        <input asp-for="ClaimPeriodFrom" class="form-control" />
+        <span asp-validation-for="ClaimPeriodFrom" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ClaimPeriodTo"></label>
+        <input asp-for="ClaimPeriodTo" class="form-control" />
+        <span asp-validation-for="ClaimPeriodTo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ModuleCode"></label>
+        <input asp-for="ModuleCode" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rate"></label>
+        <input asp-for="Rate" class="form-control" />
+        <span asp-validation-for="Rate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Claim</button>
+</form>
+
