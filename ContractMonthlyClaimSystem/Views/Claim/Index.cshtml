@@ -27,7 +27,11 @@
                 <td>@claim.ClaimPeriodFrom.ToShortDateString() - @claim.ClaimPeriodTo.ToShortDateString()</td>
                 <td>@claim.Status</td>
                 <td>
-                    <a href="@Url.Action("Details", "Claim", new { claimId = claim.ClaimId })">Details</a>
+                 <!--Edit or Delete-->                    
+                    <a href="@Url.Action("Edit", "Claim", new { claimId = claim.ClaimId })">Edit</a>
+                    <a href="@Url.Action("Delete", "Claim", new { claimId = claim.ClaimId })"
+                    onclick="return confirm('Are you sure you want to delete this claim?');">Delete</a>
+                      
                 </td>
             </tr>
         }

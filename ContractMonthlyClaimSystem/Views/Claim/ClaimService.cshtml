@@ -1,0 +1,24 @@
+﻿using System.Threading.Tasks; // For Task
+using Microsoft.EntityFrameworkCore; // For FirstOrDefaultAsync
+using YourNamespace.Models; // Adjust this to the namespace where your Claim model is defined
+using YourNamespace.Data; // Adjust this to the namespace where your DbContext is defined
+
+public class ClaimService
+{
+    private readonly YourDbContext _context;
+
+    // Constructor to inject the DbContext
+    public ClaimService(YourDbContext context)
+    {
+        _context = context;
+    }
+
+    // Asynchronous method to retrieve a claim by ID
+    public async Task<Claim>
+    GetClaimAsync(int id)
+    {
+    var claim = await _context.Claims
+    .FirstOrDefaultAsync(c => c.Id == id);
+    return claim;
+    }
+    }
